@@ -17,8 +17,9 @@ function App() {
     client.models.Todo.create({ content: window.prompt("Todo内容の入力") });
   }
 
-  function deleteTodo(id_del: string) {
-    client.models.Todo.delete(id_del )
+  
+  function deleteTodo(id: string) {
+    client.models.Todo.delete({ id })
   }
 
   return (
@@ -27,8 +28,8 @@ function App() {
       <button onClick={createTodo}>新規追加</button>
       <ul>
         {todos.map((todo) => (
-          onClick={deleteTodo(todo.id)}
-          <li key={todo.id}>{todo.content}</li>
+          onClick={() => deleteTodo(todo.id)}
+      <li key={todo.id}>{todo.content}</li>
         ))}
       </ul>
       <div>
