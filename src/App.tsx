@@ -17,6 +17,10 @@ function App() {
     client.models.Todo.create({ content: window.prompt("Todo内容の入力") });
   }
 
+  function deleteTodo(id: string) {
+    client.models.Todo.delete({ id })
+  }
+
   return (
     <main>
       <h1>乙部の初めてのTodo</h1>
