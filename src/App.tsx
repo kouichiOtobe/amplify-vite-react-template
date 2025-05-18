@@ -17,17 +17,22 @@ function App() {
     client.models.Todo.create({ content: window.prompt("Todo内容の入力") });
   }
 
+  function deleteTodo(id: string) {
+    client.models.Todo.delete({ id })
+  }
+
   return (
     <main>
       <h1>乙部の初めてのTodo</h1>
       <button onClick={createTodo}>新規追加</button>
       <ul>
         {todos.map((todo) => (
+          onClick={() => deleteTodo(todo.id)}
           <li key={todo.id}>{todo.content}</li>
         ))}
       </ul>
       <div>
-        🥳 App successfully hosted. Try creating a new todo.
+        🥳 おめでとうホスト接続に成功しました。Todoを追加してください。リストのクリックで削除できます。
         <br />
         <a href="https://docs.amplify.aws/react/start/quickstart/#make-frontend-updates">
           Review next step of this tutorial.
