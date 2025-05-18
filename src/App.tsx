@@ -19,8 +19,8 @@ function App() {
 
   return (
     <main>
-      <h1>My todos</h1>
-      <button onClick={createTodo}>+ new</button>
+      <h1>乙部の初めてのTodo</h1>
+      <button onClick={createTodo}>新規追加</button>
       <ul>
         {todos.map((todo) => (
           <li key={todo.id}>{todo.content}</li>
