@@ -18,7 +18,7 @@ function App() {
   }
 
   function deleteTodo(id_del: string) {
-    client.models.Todo.delete({id_del })
+    client.models.Todo.delete(id_del )
   }
 
   return (
