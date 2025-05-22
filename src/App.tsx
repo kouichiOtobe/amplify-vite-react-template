@@ -12,9 +12,9 @@ function App() {
       next: (data) => setTodos([...data.items]),
     });
   }, []);
-
+ 
   function deleteTodo(id: string) {
-    client.models.Todo.delete({ id });
+    client.models.Todo.delete({ id })
   }
 
   function createTodo() {
@@ -25,11 +25,12 @@ function App() {
     <main>
       <h1>乙部の初めてのTodo</h1>
       <button onClick={createTodo}>新規追加</button>
-      <ul>
-        {todos.map((todo) => (
+     <ul>
+        {todos.map(todo => <li
           onClick={() => deleteTodo(todo.id)}
-      <li key={todo.id}>{todo.content}</li>
-        ))}
+          key={todo.id}>
+          {todo.content}
+        </li>)}
       </ul>
       <div>
         🥳 おめでとうホスト接続に成功しました。Todoを追加してください。リストのクリックで削除できます。
